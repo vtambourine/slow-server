@@ -7,12 +7,11 @@ var server = http.createServer((request, response) => {
     var filename = path.join(__dirname, 'examples', 'simple-style.html');
     var page = fs.readFileSync(filename);
     response.writeHead(200, {'Content-Type': 'text/html'});
-    wait(500);
+    wait(50);
     for (var i = 0; i < page.length; i++) {
         response.write(String.fromCharCode(page[i]));
         wait(5);
     }
-    console.log(page.length * 5)
     response.end();
 });
 
